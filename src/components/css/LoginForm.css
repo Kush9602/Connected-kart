@@ -1,0 +1,85 @@
+h1 {
+  color: black;
+  font-weight: bold;
+  margin: 0;
+  margin-bottom: 30px;
+}
+
+.container {
+  background-color: #fff;
+  position: relative;
+  border-radius: 10px;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  overflow: hidden;
+  width: 768px;
+  max-width: 100%;
+  min-height: 480px;
+  align-content: stretch;
+}
+
+.signin-div,
+.signup-div {
+  background-color: #ffffff;
+  position: absolute;
+  display: flex;
+  padding: 0 50px;
+  height: 100%;
+  text-align: center;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: stretch;
+  left: 62px;
+}
+
+.signup-div {
+  left: 48px;
+}
+
+input {
+  background-color: #eee;
+  border: none;
+  padding: 12px 15px;
+  margin: 8px 0;
+  width: 150%;
+}
+
+.overlay {
+  background: linear-gradient(to right, #ff4b2b, #ff416c);
+  opacity: 0.9;
+  color: #ffffff;
+  position: absolute;
+  padding: 30px;
+  display: flex;
+  background-size: cover;
+  background-position: 0 0;
+  height: 100%;
+  width: 45%;
+  left: 423px;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: stretch;
+  justify-content: center;
+  align-items: center;
+}
+
+.overlay h1 {
+  color: #ffffff;
+}
+.overlay button {
+  border: 2px solid #fff;
+  background-color: linear-gradient(to right, #ff4b2b, #ff416c);
+}
+
+button {
+  border-radius: 20px;
+  border: 1px solid #ff4b2b;
+  background-color: #ff4b2b;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 12px 45px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-top: 16px;
+}
