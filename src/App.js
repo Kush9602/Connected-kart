@@ -1,16 +1,16 @@
 import { useState } from 'react';
 import './App.css';
 import LoginForm from "./components/LoginForm";
-import ProductList from "./components/CompanyProducts";
+import UserHomePage from "./components/UserHomePage";
 
 function App() {
-  const [isLoggedIn, setLoggedIn] = useState(false);
+  const [isLoggedIn, setLoggedIn] = useState(true);
 
   return (
     <div className="App">
-      {isLoggedIn ? <ProductList /> : <LoginForm />}
+      {isLoggedIn ? <UserHomePage /> : <LoginForm />}
     </div>
   );
-}
+}  
 
 export default App;

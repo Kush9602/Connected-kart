@@ -1,0 +1,44 @@
+.card-body {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+  margin-left: 30px;
+  padding: 10px;
+  justify-content: space-around;
+  align-items: center;
+  max-width: 222px;
+  min-width: 222px;
+  align-content: center;
+  background: #ffffff;
+  color: black;
+  box-shadow: 1px 7px 13px rgb(0 0 0 / 40%);
+}
+
+img {
+  height: 200px;
+}
+
+.card-body button {
+  display: inline;
+  background-color: #ffffff;
+  color: black;
+  border: none;
+  padding: 0;
+}
+
+h6 {
+  margin: 0;
+  margin-top: 14px;
+  display: inline;
+  font-size: 18px;
+}
+
+.feature {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  align-content: center;
+  width: 200px;
+}
