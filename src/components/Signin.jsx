@@ -22,7 +22,7 @@ function Signin(props){
 
     function login(){
         axios.post("http://localhost:9002/login", user)
-        .then(res => {if(res.data.message === "Login Successfull") {history.push("./userhomepage")} else alert(res.data.message)})
+        .then(res => {console.log(res.data); if(res.data.message === "Login Successfull") {history.push("./userhomepage")} else alert(res.data.message)})
         
         
     }

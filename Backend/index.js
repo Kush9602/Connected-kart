@@ -18,12 +18,33 @@ const userSchema = new mongoose.Schema({
     name: String,
     email: String,
     password: String,
-    cart: Object,
+    cart: [],
+})
+
+const productSchema = new mongoose.Schema({
+    imageUrl: String,
+    name: String,
+    price: String,
 })
 
 const User = new mongoose.model("User", userSchema)
+const Product = new mongoose.model("Product", productSchema)
 
 //Routes
+
+app.get("/productInfo",(req, res)=>{
+    Product.find({},(err,data)=>{
+        if(!err){
+            console.log(data);
+        }
+        else{
+            console.log(err);
+        }
+    })
+    res.send("hello");
+
+})
+
 app.post("/login", (req, res)=> {
     const { username, password} = req.body
     User.findOne({ email: username}, (err, user) => {
@@ -50,7 +71,9 @@ app.post("/register", (req, res)=> {
                 name,
                 email,
                 password,
-                cart:{},
+                cart:{
+
+                },
             })
             user.save(err => {
                 if(err) {
@@ -63,6 +86,8 @@ app.post("/register", (req, res)=> {
     })
     
 }) 
+
+
 
 app.listen(9002,() => {
     console.log("BE started at port 9002")
