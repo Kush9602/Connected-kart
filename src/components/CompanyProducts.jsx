@@ -3,7 +3,6 @@ import Card from "./ProductCard";
 import './css/CompanyProducts.css';
             
 function CompanyProducts(){
-    console.log(database);
     return (
         <div className="product-card">
              {database.map((obj) => {

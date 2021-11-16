@@ -1,0 +1,39 @@
+.flex-cart-item {
+  background: #ffffff;
+  display: flex;
+  flex-direction: row;
+  width: 80%;
+  color: black;
+  margin: 20px;
+  box-shadow: 1px 7px 13px rgb(0 0 0 / 40%);
+}
+
+.cart-item-detail {
+  width: 1000px;
+  margin: 10px;
+  margin-top: 5%;
+}
+
+.cart-item-detail h6 {
+  display: inline;
+  margin: 10px;
+}
+
+.cart-item-detail p {
+  margin: 10px;
+}
+
+.flex-detail {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+}
+
+.flex-detail button {
+  background-color: #ffffff;
+  color: red;
+  border: none;
+  padding: none;
+  margin: none;
+}

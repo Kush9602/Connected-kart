@@ -1,33 +1,29 @@
 import { useState } from "react";
+import axios from "axios";
+import { useHistory } from "react-router-dom";
 
 function Signin(props){
-    const [input, setInput] = useState({
+    const [user, setUser] = useState({
         username: '',
         password: '',
     });
 
-    function handleUsernameChange(event){
-        const name = event.target.value;
-        setInput(prevValue => {
+    const history = useHistory();
+
+    function handleChange(event){
+        const {name, value} = event.target;
+        setUser((prevValue) => {
             return {
                 ...prevValue,
-                username: name,
+                [name]: value   
             }
         })
     }
 
-    function handlePasswordChange(event){
-        const pass = event.target.value;
-        setInput(prevValue => {
-            return {
-                ...prevValue,
-                password: pass,
-            }
-        })
+    function login(){
+        axios.post("http://localhost:9002/login", user)
+        .then(res => {if(res.data.message === "Login Successfull") {history.push("./userhomepage")} else alert(res.data.message)})
         
-    }
-
-    function verifyUser() {
         
     }
 
@@ -45,21 +41,25 @@ function Signin(props){
                 <input 
                     className="input" 
                     type="text" 
+                    name="username"
+                    value={user.username}
                     placeholder="User Name" 
-                    onChange={handleUsernameChange}/>
+                    onChange={handleChange}/>
 
                 <input 
                     className="input" 
-                    type="password" 
+                    type="password"
+                    name="password" 
+                    value={user.password}
                     placeholder="Password" 
-                    onChange={handlePasswordChange}/>
+                    onChange={handleChange}/>
         
-                <button onClick={verifyUser}>Sign In</button>
+                <button onClick={login}>Sign In</button>
             </div>
             <div className="overlay">
                 <h1>Hello, Friend!</h1>
 			    <p>Enter your personal details and start journey with us</p>
-				<button onClick={handleClick}>Sign Up</button>
+				<button onClick={handleClick}>Register</button>
             </div>
         </div>
     );

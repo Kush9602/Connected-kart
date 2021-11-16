@@ -1,5 +1,5 @@
 h1 {
-  color: black;
+  color: #1d93d8;
   font-weight: bold;
   margin: 0;
   margin-bottom: 30px;
@@ -53,7 +53,8 @@ input {
 }
 
 .overlay {
-  background: linear-gradient(to right, #ff4b2b, #ff416c);
+  background: linear-gradient(to right, #1d93d8, #314ae4);
+  /* #0c1c7e, #94c6fa */
   opacity: 0.9;
   color: #ffffff;
   position: absolute;
@@ -76,13 +77,13 @@ input {
 }
 .overlay button {
   border: 2px solid #fff;
-  background-color: linear-gradient(to right, #ff4b2b, #ff416c);
+  background-color: transparent;
 }
 
 button {
   border-radius: 20px;
-  border: 1px solid #ff4b2b;
-  background-color: #ff4b2b;
+  border: 1px solid #1d93d8;
+  background-color: #1d93d8;
   color: #ffffff;
   font-size: 12px;
   font-weight: bold;

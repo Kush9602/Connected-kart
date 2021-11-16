@@ -42,3 +42,7 @@ h6 {
   align-content: center;
   width: 200px;
 }
+
+.feature button {
+  color: #2474ed;
+}

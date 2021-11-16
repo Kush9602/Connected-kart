@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import Signin from "./Signin";
-import Signup from "./Signup";
+import Register from "./Register";
 import './css/LoginForm.css';
 
 
@@ -13,7 +13,7 @@ function LoginForm() {
 
     return(
         <div className="main-container">
-            {signup ? <Signup onClick={handleClick}/> :<Signin onClick={handleClick} />}
+            {signup ? <Register onClick={handleClick}/> :<Signin onClick={handleClick} />}
         </div>
     );
 }

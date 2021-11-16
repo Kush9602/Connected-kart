@@ -4,7 +4,12 @@
   padding: 0;
 }
 
-.product {
+.product,
+.main-cart-div {
   margin-top: 120px;
   margin-left: 50px;
+}
+
+.main-cart-div {
+  margin-left: 232px;
 }
