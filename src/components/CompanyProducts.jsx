@@ -1,13 +1,22 @@
-import database from "../database/assignmentdb_product.json";
 import Card from "./ProductCard";
 import './css/CompanyProducts.css';
-            
-function CompanyProducts(){
+import axios from "axios";
+import {useState, useEffect} from "react";
+
+function CompanyProducts(props){
+    const [products, setProducts] = useState([]);
+
+    useEffect(() => {
+        axios.get("http://localhost:9002/productInfo")
+        .then(res => setProducts(res.data));
+     }, []);
+
+    
     return (
         <div className="product-card">
-             {database.map((obj) => {
+            {products.map((obj) => {
                  return (
-                    <Card key={obj._id.$oid} img={obj.imgUrl} name={obj.name} price={obj.price}/>)
+                    <Card key={obj._id} productDetail={obj} userID={props.userID}/>)
              })}
         </div>
     );

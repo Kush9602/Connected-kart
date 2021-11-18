@@ -32,26 +32,69 @@ const Product = new mongoose.model("Product", productSchema)
 
 //Routes
 
+app.post("/getUserCart",(req, res) => {
+    const id = req.body;
+    const userID = Object.keys(id)[0];
+    User.findOne({_id: userID}, (err, user) => {
+
+        if(user) {
+            res.send(user.cart);
+                      
+        } else {
+            res.send({err})
+        }
+    });
+});
+
 app.get("/productInfo",(req, res)=>{
     Product.find({},(err,data)=>{
         if(!err){
-            console.log(data);
+            res.send(data);
         }
         else{
             console.log(err);
         }
-    })
-    res.send("hello");
+    });
 
+});
+
+// working omn deleting the item from cart
+app.delete("/deleteCartItem", (req, res) => {
+    // const [productId, userId] = req.body;
+    // console.log(userId);
+    // console.log(productId); 
+    // "cart":  {_id: productId} }
+    User.findOneAndDelete({_id: req.body },(err, doc)=>{
+        console.log(doc);
+    })
+//   User.find() 
 })
 
+app.post("/addToCart",(req, res)=>{
+    const [productInfo, userID] = req.body;
+
+    User.findOneAndUpdate({_id: userID},{$push : {"cart": {
+        _id: productInfo._id,
+        imgUrl: productInfo.imgUrl,
+        name: productInfo.name,
+        price: productInfo.price
+    }}}, null, (err,data)=>{
+        if(err){
+            res.send({message : "Error fetching data"});
+        }
+        else{
+            res.send({message : "Data Fetched"});
+        }
+    })
+
+});
+
 app.post("/login", (req, res)=> {
-    const { username, password} = req.body
+    const { username, password} = req.body;
     User.findOne({ email: username}, (err, user) => {
         if(user){
             if(password === user.password ) {
                 res.send({message: "Login Successfull", user: user})
-                console.log(user)
             } else {
                 res.send({ message: "Password didn't match"})
             }
@@ -59,7 +102,7 @@ app.post("/login", (req, res)=> {
             res.send({message: "User not registered"})
         }
     })
-}) 
+});
 
 app.post("/register", (req, res)=> {
     const { name, email, password} = req.body
@@ -71,9 +114,7 @@ app.post("/register", (req, res)=> {
                 name,
                 email,
                 password,
-                cart:{
-
-                },
+                cart:[]
             })
             user.save(err => {
                 if(err) {
@@ -85,10 +126,10 @@ app.post("/register", (req, res)=> {
         }
     })
     
-}) 
+});
 
 
 
 app.listen(9002,() => {
     console.log("BE started at port 9002")
-})
+});

@@ -1,7 +1,7 @@
 import CompanyProducts from "./CompanyProducts";
 import Header from "./Header";
 import Cart from "./Cart";
-import { useState } from "react";
+import { useState} from "react";
 import './css/UserHomePage.css';
 
 function UserHomePage(props){
@@ -11,15 +11,13 @@ function UserHomePage(props){
         setInCart(true);
     }
 
-    function handleLogoClick(){
+    function handleLogoClick() {
         setInCart(false);
     }
-
     return (
         <div className="main-user-div">
-            <Header cartClick={handleCartClick} logoClick={handleLogoClick}/>
-            {/* List of object should be passed in Cart that contains the added productu by individual users */}
-            {inCart? <div className="main-cart-div"><Cart cartItems={props.userData.cart}/></div> : <div className="product"><CompanyProducts /></div>}
+            <Header cartClick={handleCartClick} logoClick={handleLogoClick} />
+            {inCart? <div className="main-cart-div"><Cart userID={props.userInfo._id}/></div> : <div className="product"><CompanyProducts userID={props.userInfo._id}/></div>}
         </div>
     );
 }
